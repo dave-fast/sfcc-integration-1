@@ -31,7 +31,7 @@ var sendOrderConfirmationEmail = function (order) {
         };
     
         emailHelpers.sendEmail(emailObj, 'checkout/confirmation/confirmationEmail', orderObject);
-        Logger.debug('Sent Order confirmation Email to ' + order.customerEmail);
+        Logger.warn('Sent Order confirmation Email to ' + order.customerEmail);
 
     } catch (error) {
         Logger.error('Error on send OrderConfirmation Email in after Post and error :' + error);

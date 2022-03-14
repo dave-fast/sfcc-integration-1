@@ -18,7 +18,7 @@ var Logger = require('dw/system/Logger').getLogger('Fast', 'OrderCreations');
  * @returns 
  */
 exports.modifyGETResponse =function(basket , basketResponse) {
-    Logger.debug('Modify Basket GET HOOK');
+    Logger.warn('Modify Basket GET HOOK');
 
     try {
         // Add All Available Shipping methods into Basket response  
@@ -35,7 +35,7 @@ exports.modifyGETResponse =function(basket , basketResponse) {
 };
 
 exports.afterPATCH =function(basket , basketInput) {
-    Logger.debug('Before Basket Patch HOOK');
+    Logger.warn('Before Basket Patch HOOK');
 
 	//Read the value from Request Header
 	var enableCreateCustomer = request.getHttpHeaders().get("x-enable-create-customer");
@@ -112,7 +112,7 @@ exports.afterPATCH =function(basket , basketInput) {
  * @returns 
  */
 exports.modifyPOSTResponse =function(basket , basketResponse) {
-    Logger.debug('Modify Basket POST HOOK');
+    Logger.warn('Modify Basket POST HOOK');
 
     //Set Product Item custom attributes
     fastUtils.updateItemsAttr(basketResponse.productItems);
