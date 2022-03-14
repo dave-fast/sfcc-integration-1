@@ -18,7 +18,7 @@ var Logger = require('dw/system/Logger').getLogger('Fast', 'OrderCreations');
  * @returns 
  */
 exports.modifyGETResponse =function(order , orderResponse) {
-    Logger.debug('Modify Order GET HOOK');
+    Logger.warn('Modify Order GET HOOK');
 
 	//Set Product Item custom attributes
 	fastUtils.updateItemsAttr(orderResponse.productItems);
@@ -35,7 +35,7 @@ exports.modifyGETResponse =function(order , orderResponse) {
  * @param {*} orderInput 
  */
 exports.afterPATCH = function (order, orderInput) {
-	Logger.debug('AFTER Patch ORDER HOOK - Start');
+	Logger.warn('AFTER Patch ORDER HOOK - Start');
 
 	try {
 		var orderStatus = Transaction.wrap(function () {
@@ -58,7 +58,7 @@ exports.afterPATCH = function (order, orderInput) {
 		Logger.error('Error on afterPATCH() and error :' + error);
 	}
 
-	Logger.debug('End Patch ORDER HOOK - End');
+	Logger.warn('End Patch ORDER HOOK - End');
 };
 
 /**
@@ -68,7 +68,7 @@ exports.afterPATCH = function (order, orderInput) {
  * @returns 
  */
 exports.afterPOST = function (order) {
-	Logger.debug('AFTER POST ORDER HOOK');
+	Logger.warn('AFTER POST ORDER HOOK');
 
 	//Set the transaction number in Payment 
 	try {

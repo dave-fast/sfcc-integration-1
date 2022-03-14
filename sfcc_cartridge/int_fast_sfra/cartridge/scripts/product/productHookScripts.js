@@ -13,7 +13,7 @@ var Logger = require('dw/system/Logger').getLogger('Fast', 'OrderCreations');
  * @returns 
  */
  exports.modifyPOSTResponse = function (basket , basketResponse, productItems )  {
-    Logger.debug('modify Basket -Items POST Response HOOK');
+    Logger.warn('modify Basket -Items POST Response HOOK');
  
     //Set Product Item custom attributes
     fastUtils.updateItemsAttr(basketResponse.productItems); 
@@ -28,7 +28,7 @@ var Logger = require('dw/system/Logger').getLogger('Fast', 'OrderCreations');
  * @returns 
  */
 exports.modifyPATCHResponse = function (basket, basketResponse, productItemId ) {
-    Logger.debug('modify Basket -Items PATCH Response HOOK');
+    Logger.warn('modify Basket -Items PATCH Response HOOK');
 
     //Set Product Item custom attributes
     fastUtils.updateItemsAttr(basketResponse.productItems); 
@@ -43,7 +43,7 @@ exports.modifyPATCHResponse = function (basket, basketResponse, productItemId ) 
  * @returns 
  */
  exports.modifyDELETEResponse = function (basket, basketResponse, productItemId ) {
-    Logger.debug('modify Basket -Items DELETE Response HOOK');
+    Logger.warn('modify Basket -Items DELETE Response HOOK');
 
     //Set Product Item custom attributes
     fastUtils.updateItemsAttr(basketResponse.productItems); 

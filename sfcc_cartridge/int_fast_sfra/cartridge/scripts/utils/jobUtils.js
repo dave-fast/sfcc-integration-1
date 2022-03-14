@@ -91,7 +91,7 @@ function readUpdateFileAsJson(file , jobType) {
                             }
                         }
                     } else{
-                        Logger.debug('Custom attributes id missing for order no :' + orderNumber);
+                        Logger.warn('Custom attributes id missing for order no :' + orderNumber);
                     }
                 }
             }
@@ -108,7 +108,7 @@ function readUpdateFileAsJson(file , jobType) {
         fileReader.close();
     }
 
-    Logger.debug('End of jobUtils.readUpdateFileAsJson()');
+    Logger.warn('End of jobUtils.readUpdateFileAsJson()');
     return itemJson;
 }
 
@@ -128,7 +128,7 @@ function readStatus(xmlStatus, orderNumber) {
         statusJson.exportStatus = xmlStatus.elements('export-status');
         statusJson.paymentStatus = xmlStatus.elements('payment-status');
     }else{
-        Logger.debug('Status attributes are missing for order no :' + orderNumber);
+        Logger.warn('Status attributes are missing for order no :' + orderNumber);
     }
     return statusJson;
 }
@@ -158,10 +158,10 @@ function readShipments(xmlShipments, orderNumber) {
             }
             shipmentJson.estimatedDeliveryDate = estimatedDeliveryDate;
         }else{
-            Logger.debug('Shipment attributes are missing for order no :' + orderNumber);
+            Logger.warn('Shipment attributes are missing for order no :' + orderNumber);
         }
     }else{
-        Logger.debug('Shipments attributes are missing for order no :' + orderNumber);
+        Logger.warn('Shipments attributes are missing for order no :' + orderNumber);
     }
     return shipmentJson;
 }
@@ -195,7 +195,7 @@ function readProductLines(productLineItems, orderNumber) {
             productJson.push(productLineJson);
         }
     }else{
-        Logger.debug('Product attributes are missing for order no :' + orderNumber);
+        Logger.warn('Product attributes are missing for order no :' + orderNumber);
     }
 
     return productJson;
@@ -254,7 +254,7 @@ function readRefundFileAsJson(file) {
                                 }
                             }
                         } else{
-                            Logger.debug('Return Item Custom attributes are missing for order no :' + orderNo);
+                            Logger.warn('Return Item Custom attributes are missing for order no :' + orderNo);
                         }
                         if(!empty(returnItemJson.productId) && !empty(returnItemJson.quantity)){
                             returnItemsJson.push(returnItemJson);
@@ -290,7 +290,7 @@ function readRefundFileAsJson(file) {
                             }
                         }
                     } else{
-                        Logger.debug('Custom attributes id missing for order no :' + orderNo);
+                        Logger.warn('Custom attributes id missing for order no :' + orderNo);
                     }
                 }
             }
@@ -307,7 +307,7 @@ function readRefundFileAsJson(file) {
         fileReader.close();
     }
 
-    Logger.debug('End of jobUtils.readRefundFileAsJson()');
+    Logger.warn('End of jobUtils.readRefundFileAsJson()');
     return returnJson;
 }
 
